@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> all the books </title>
+
+</style>
+</head>
+<center>
+	
+<body>
+{% include "base.html" %}
+
+<h2>!!..PICT BOOKS..!!!</h2>
+
+<br>
+<a href="/add_new_book/">+ Add New Book</a>
+
+<br> 
+
+
+<form action="/library/">
+ <input type="text" name="input" placeholder="Search by title,author,subject">
+</form>
+
+<a href="/library/">Display All</a>
+<br>
+<br>
+
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>AUTHOR</th>
+                                <th>COPIES</th>
+                            </tr>
+                        </thead>
+
+                    <tbody>
+                            <tr class="success">
+
+                                {% for i in books %}
+                                 <tr>
+                                 <td>
+                                       <a href="/book_summary/?book_id={{i.id}}">{{i.bookname}}</a>
+                                    </td>
+                                 <td class="info">{{i.author}}</td>  
+                                 <td class="warning">{{i.copies}}</td>
+                                 </tr>              
+                                 {% endfor %}
+                            </tr>
+                    </tbody>
+
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+</div>
+</div>
+    <!-- /#wrapper -->
+
+
+</body>
+
+</html>

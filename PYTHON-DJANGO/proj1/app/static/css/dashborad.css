@@ -1,0 +1,12 @@
+.row{
+	padding-left: 270px;
+}
+.navbar navbar-inverse navbar-static-top
+{
+	position: fixed;
+}
+.row
+{
+	padding-left: 280px;
+	padding-right: 200px;
+}

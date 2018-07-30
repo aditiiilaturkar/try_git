@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Products we have..!</title>
+</head>
+<body>
+	<h3>Clean ...Clear ..n ..Confident..!</h3>
+  
+
+<table border='1'>
+   <tr>
+   <th>product </th> 
+   <th> price</th>
+   <th>producttype</th> 
+   <th> rating</th>
+   </tr>
+  
+  {% for i in booktable %}
+   <tr>
+   <td>{{i.product}}</td> 
+   <td> {{i.price}} </td>
+   <td>{{i.producttype}}</td> 
+   <td> {{i.rating}}</td>
+   </tr>
+   
+   {%endfor %}
+  
+
+  <body>
+</html>

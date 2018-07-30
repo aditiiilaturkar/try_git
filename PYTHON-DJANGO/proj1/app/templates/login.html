@@ -1,0 +1,41 @@
+<html>
+<head><title>FORM</title>
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+</head>
+<center>
+<body>
+
+
+<h2>Login Form</h2>
+
+<form action="/login/" method="post">
+  <div class="imgcontainer">
+    <img src="/static/photos/aditi.jpeg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <b>Username</b>
+    <input type="text" placeholder="Enter Username" name="name" required>
+   {{wrongname}}
+
+    <b>Password</b>
+    <input type="password" placeholder="Enter Password" name="password" required>
+   {{wrongpass}}
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="/register/" class="link">Not registered yet? Sign up! </a>
+    </div>
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+     <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+</head>
+<body>
+<br><br>
+	   <h1>!!!EDIT YOUR PAGE HERE..!!</h1>
+
+
+<form action="/edit_prof/" method="post">
+
+
+
+  <div class="imgcontainer">
+    <img src="/static/photos/aditi.jpeg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <b>Username</b>
+    <input type="text" placeholder="Enter Username"  name="name" required>
+    <b>Full name</b>
+    <input type="text" placeholder="Enter Username"  name="fullname" required>
+   
+    <b>Password</b>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    <b>Email</b>
+    <input type="email" placeholder="Enter Email" name="email" required>
+   <br>
+   <input type="radio" name="usertype" value="student"> Student
+   <input type="radio" name="usertype" value="librarian"> Librarian
+   <br>
+   {{edited}}
+        
+    <button type="submit">Save</button>
+  </div>
+
+</form>
+ 
+
+   <button class="back" onclick="goBack()">Go Back</button>
+
+
+   <script>
+   function goBack() {
+       window.history.back();
+   }
+  </script>
+ 
+
+</body>
+</html>

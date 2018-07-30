@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> current issued books </title>
+
+
+</head>
+<body>
+{% include "base.html" %}
+
+<h1>!!..CURRENT ISSUED BOOKS..!!!</h1>
+
+<br>
+{{cancel}}
+<br>
+
+
+{% if authority == "Student" %}
+
+<a href="/student_profile/">go back!</a> 
+
+{% endif %}
+
+{% if authority == "Librerian" %}
+
+<a href="/lib_profile/">go back!</a> 
+
+{% endif %}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>STUDENT</th>
+                                <th>ISSUE DATE</th>
+                                <th>RETURN DATE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                    <tbody>
+                            <tr class="success">
+
+                                {% for i in books %}
+                                 <tr>
+                                 <td class="info">{{i.issued_book}}</td>  
+                                 <td class="danger">{{i.student_name}}</td>
+                                 <td class="warning">{{i.issue_date}}</td>
+                                 <td class="info">{{i.return_date}}</td>
+                                 <td class="danger">
+                                    <a href="/cancel/?book_id={{i.id}}">
+                                        <button>Cancel Booking</button>
+                                    </a>
+                                 </td>
+
+                                 </tr>              
+                                 {% endfor %}
+                            </tr>
+                    </tbody>
+
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+    
+</center>
+    <!-- /#wrapper -->
+</body>
+
+</html>

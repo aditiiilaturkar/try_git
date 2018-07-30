@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> current issued books </title>
+    <link rel="stylesheet" type="text/css" href="/static/css/dashborad.css">
+
+</head>
+<center>
+	
+<body>
+{% include "base.html" %}
+<br>
+<br><br>
+<h1>!!..CURRENT ISSUED BOOKS..!!!</h1>
+
+<br>
+{{cancel}}
+<br>
+
+
+<center>
+
+<h3>Books yet to pick/</h3>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>STUDENT</th>
+                                <th>ISSUE DATE</th>
+                                <th>RETURN DATE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                    <tbody>
+                            <tr class="success">
+
+                                {% for i in issued_books %}
+                                {% if i.status == "not_picked" %}
+ 
+                                 <tr>
+                                 <td>{{i.issued_book}}</td>  
+                                 <td>{{i.student_name}}</td>
+                                 <td>{{i.issue_date}}</td>
+                                 <td>{{i.return_date}}</td>
+                                 <td>
+                                    <a href="/picked_up/?issued_id={{i.id}}">
+                                        <button>pick</button>
+                                    </a>
+                                 </td>
+
+                                 </tr>
+                                {% endif %}               
+              
+                                 {% endfor %}
+                            </tr>
+                    </tbody>
+
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+    
+
+
+
+<!-- picked table -->
+<h3>Picked up books..!</h3>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>TITLE</th>
+                                <th>STUDENT</th>
+                                <th>ISSUE DATE</th>
+                                <th>RETURN DATE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                    <tbody>
+                            <tr class="success">
+
+                                {% for i in issued_books %}
+                                {% if i.status == "picked" %}
+ 
+                                 <tr>
+                                 <td>{{i.issued_book}}</td>  
+                                 <td>{{i.student_name}}</td>
+                                 <td>{{i.issue_date}}</td>
+                                 <td>{{i.return_date}}</td>
+                                 <td>
+                                    <a href="/returned/?issued_id={{i.id}}&bookname={{i.issued_book}}">
+                                        <button>Return</button><br>
+
+                                        <a href="/fee_receipt/?return_id={{i.id}}&bookname={{i.issued_book}}&&student_name={{i.student_name}}">Late Fee </a>
+                                    </a>
+
+
+                                 </td>
+
+                                 </tr>
+                                {% endif %}               
+              
+                                 {% endfor %}
+                            </tr>
+                    </tbody>
+
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+
+
+
+</center>
+    <!-- /#wrapper -->
+</body>
+
+</html>
