@@ -23,7 +23,7 @@ def fee_receipt(request):
 	obj=models.issued_book.objects.get(issued_book=bookname)
 	issue_date=obj.issue_date;
 	issue_date=str(issue_date)
-
+	print "nsn,"
 	return_date=obj.return_date;	
 	return_date=str(return_date)
 
